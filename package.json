@@ -1,0 +1,13 @@
+{
+  "name": "gilbert-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "test": "npm --prefix frontend test && php backend/tests/session.php && node tests/integration.mjs",
+    "release": "npm run build && php scripts/package.php",
+    "lint": "npm --prefix frontend run lint"
+  }
+}

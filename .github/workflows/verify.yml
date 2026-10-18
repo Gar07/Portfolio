@@ -1,0 +1,47 @@
+name: Verify and package
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: test-only-password
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -ptest-only-password"
+          --health-interval=10s --health-timeout=5s --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mysqli, mbstring, fileinfo, zip
+          coverage: none
+      - run: npm ci --prefix frontend
+      - name: Local test configuration
+        run: |
+          printf '%s\n' "<?php return ['environment'=>'local','origin'=>'http://localhost:18081','db_host'=>'127.0.0.1','db_port'=>3306,'db_name'=>'unused','db_user'=>'root','db_password'=>'test-only-password'];" > config.local.php
+      - run: find backend scripts tests deploy -name '*.php' -print0 | xargs -0 -n1 php -l
+      - run: npm run lint
+      - run: npm run test
+      - run: npm audit --prefix frontend --audit-level=moderate
+      - run: npm run release
+      - run: php tests/package.php
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-hostinger
+          path: release/
+          if-no-files-found: error
+          retention-days: 30

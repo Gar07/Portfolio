@@ -1,0 +1,32 @@
+# Credentials and private state
+/config.local.php
+.env
+.env.*
+!.env.example
+*.sql
+*.sql.gz
+*.pem
+*.key
+*.p12
+*.log
+*.zip
+*.tar.gz
+
+# Installed/generated output
+**/node_modules/
+/frontend/dist/
+/release/
+/.qa/
+/.test-*/
+/backend/uploads/*
+!/backend/uploads/default.png
+!/backend/uploads/cv-gilbert-2026.pdf
+
+# Local tools and editor state
+/.agents/
+/.codex/
+/graphify-out/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

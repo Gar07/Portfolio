@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+        <html lang="id">
+        <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan presentasi portofolio</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; color: #181b20; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ddd; padding: .65rem; text-align: left; vertical-align: top; }
+code, pre { font-family: ui-monospace, monospace; background: #f6f7f8; }
+pre { padding: 1rem; overflow: auto; }
+a { color: #236653; }
+@media print { body { font-size: 11pt; } tr { break-inside: avoid; } }
+</style>
+</head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="panduan-presentasi-portofolio">Panduan presentasi portofolio</h1>
+<p>Target: video sekitar 10–12 menit. Sesuaikan durasi dengan ketentuan dosen. Jelaskan masalah, keputusan, alur data, dan bukti hasil; tidak perlu membaca semua baris kode. Gunakan data contoh yang jelas untuk demo dan hapus setelah selesai. Jangan menampilkan password, token, atau dump database saat merekam.</p>
+<h2 id="apa-yang-paling-layak-ditampilkan">Apa yang paling layak ditampilkan</h2>
+<p>Urutkan profil singkat → empat proyek pilihan → satu studi kasus → pengalaman/pendidikan → kategori dan arti level keahlian → pencapaian → unduh CV → satu perubahan admin yang terlihat di publik. Ini memperlihatkan identitas, kemampuan memecahkan masalah, dan bahwa konten benar-benar berasal dari database.</p>
+<p>Untuk meningkatkan isi berikutnya, prioritaskan bukti nyata: tangkapan layar hasil proyek, satu tantangan dan penyelesaian yang benar-benar Anda alami, URL bukti GEMASTIK/apresiasi yang boleh dipublikasikan, lalu satu catatan teknis asli. Ukur metrik eksperimen sebelum mencantumkan akurasi, kecepatan, atau persentase peningkatan. Tidak perlu menambah animasi, grafik aktivitas, atau chatbot untuk membuktikan kemampuan.</p>
+<h2 id="narasi-video-dan-aksi-layar">Narasi video dan aksi layar</h2>
+<table>
+<thead>
+<tr>
+<th>Waktu</th>
+<th>Aksi</th>
+<th>Contoh narasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00–0:45</td>
+<td>Tampilkan halaman utama</td>
+<td>“Saya Gilbert Aldrich Rumahorbo, mahasiswa Ilmu Komputer Universitas Negeri Medan. Website ini menyajikan profil, proyek, pengalaman, dan keahlian saya. Tujuan pengembangannya adalah membuat portofolio mudah dipahami sekaligus dapat diperbarui melalui panel admin.”</td>
+</tr>
+<tr>
+<td>0:45–2:00</td>
+<td>Buka proyek dan satu uraian masalah</td>
+<td>“Saya menampilkan empat proyek pilihan agar halaman awal tetap terarah. Sepuluh proyek tetap tersedia melalui tombol semua proyek. Setiap proyek memiliki peran, teknologi, tahun, dan tautan bila tersedia. Uraian ini menjelaskan masalah dan pendekatan; bukan hanya nama aplikasinya.” Tunjukkan pencarian <code>Socket.IO</code>, yang menemukan Cyber Kampung meskipun bukan proyek pilihan.</td>
+</tr>
+<tr>
+<td>2:00–3:00</td>
+<td>Riwayat, keahlian, pencapaian</td>
+<td>“Riwayat menjelaskan kontribusi saya, bukan hanya jabatan. Keahlian dikelompokkan agar mudah dipindai. Level merupakan penilaian mandiri dengan definisi yang sama di admin dan publik. Teknologi yang belum saya nilai diberi keterangan Belum dinilai.” Pilih Advanced, baca artinya, lalu kembali ke semua level.</td>
+</tr>
+<tr>
+<td>3:00–3:40</td>
+<td>Unduh CV dan mode mobile/gelap</td>
+<td>“CV adalah ringkasan dua halaman yang dapat diunduh dan diganti melalui admin. Cetak portofolio menghasilkan isi lengkap. Layout mengikuti ukuran layar dan memiliki pilihan tema.”</td>
+</tr>
+<tr>
+<td>3:40–5:00</td>
+<td>Login admin; tambah pencapaian contoh; muat ulang publik</td>
+<td>“Perubahan dimulai dari formulir React. Setelah validasi browser, data dikirim ke endpoint PHP dengan cookie sesi dan token CSRF. PHP memverifikasi sesi dan CSRF dan memvalidasi input sebelum menjalankan prepared statement. Setelah tersimpan, halaman publik mengambil data terbaru.” Beri nama <code>Contoh presentasi</code>, simpan, perlihatkan di publik, lalu hapus contoh itu.</td>
+</tr>
+<tr>
+<td>5:00–6:10</td>
+<td>Tunjukkan alur di <code>backendApi.js</code>, <code>index.php</code>, <code>public.php</code></td>
+<td>“Browser tidak terhubung langsung ke MySQL. React mengirim HTTP ke API PHP. Router memilih controller; controller membaca database dan mengirim JSON. Endpoint public memilih field secara eksplisit sehingga password dan token tidak ikut dikirim.”</td>
+</tr>
+<tr>
+<td>6:10–7:30</td>
+<td><code>Pencapaian.jsx</code> dan <code>src/pencapaian.php</code></td>
+<td>“State list menampung data, form menampung input, dan editing membedakan tambah serta ubah. Fungsi save memakai POST atau PUT. Di server, sesi admin wajib valid dan setiap perubahan memerlukan CSRF. Teks, jenis pencapaian, tahun, dan URL diperiksa lagi karena validasi browser dapat dilewati.” Jelaskan satu prepared statement dan parameter terikat.</td>
+</tr>
+<tr>
+<td>7:30–8:30</td>
+<td><code>skillLevels.js</code>, bagian filter <code>Public.jsx</code></td>
+<td>“Definisi level dipusatkan agar admin dan publik tidak berbeda arti. Filter menghasilkan daftar dari data yang sudah diterima, sehingga tidak perlu request baru setiap kali pengguna mencari. Data asli tetap tersedia; cetak mengabaikan filter layar.”</td>
+</tr>
+<tr>
+<td>8:30–9:30</td>
+<td><code>users.php</code> dan <code>uploads.php</code></td>
+<td>“PDF diperiksa dari MIME berkas di server, bukan hanya ekstensi. Ukuran dibatasi 5 MB dan nama penyimpanan dibuat acak. Jika CV gagal setelah foto sempat diunggah, foto baru dibersihkan. Berkas lama baru dibersihkan setelah update database berhasil.”</td>
+</tr>
+<tr>
+<td>9:30–10:30</td>
+<td><code>schema.php</code>, <code>update-content.php</code>, hasil tes/build</td>
+<td>“Skema diperluas tanpa menghapus tabel. Impor kurasi memakai transaksi dan marker sekali jalan agar edit admin tidak ditimpa saat perintah diulang. Akun dan level lama diperiksa sebelum commit. Pengujian mencakup input invalid, CRUD, unggahan, filter, dan tampilan mobile.”</td>
+</tr>
+<tr>
+<td>10:30–11:15</td>
+<td>Kembali ke publik</td>
+<td>“Nilai tambah pengembangan saya adalah konten yang lebih bermakna, alur kelola yang lengkap, dan validasi yang dapat dijelaskan. Batasnya: data prestasi berasal dari pemilik, bukti sertifikat belum diunggah, CV tidak tersinkron otomatis, dan pengujian ini masih pada lingkungan lokal.”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bedakan-materi-modul-dan-pengembangan">Bedakan materi modul dan pengembangan</h2>
+<p>Modul <strong>14. Praktik Backend-Frontend</strong> sudah mengajarkan React/PHP/MySQL, REST API, autentikasi token, CRUD enam tabel, dan tampilan level keahlian publik. Jangan menyebut seluruh fondasi tersebut sebagai inovasi sendiri. Pada kode contoh modul, proyek berisi <code>nama_karya</code>, <code>deskripsi</code>, <code>url</code>; keahlian berisi nama dan level.</p>
+<table>
+<thead>
+<tr>
+<th>Fondasi modul</th>
+<th>Pengembangan pada versi ini</th>
+<th>Mengapa bermanfaat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proyek: nama, deskripsi, URL</td>
+<td>Teknologi, peran, tahun, unggulan, demo terpisah, uraian masalah dan pendekatan</td>
+<td>Pengunjung memahami konteks dan kontribusi, bukan hanya hasil akhir</td>
+</tr>
+<tr>
+<td>Nama dan level keahlian</td>
+<td>Kategori, definisi bersama, filter, dan status Belum dinilai</td>
+<td>Arti level konsisten dan tidak menebak kemampuan</td>
+</tr>
+<tr>
+<td>Pengalaman berisi organisasi, jabatan, tahun</td>
+<td>Periode lebih rinci dan uraian kontribusi</td>
+<td>Menjelaskan apa yang dikerjakan</td>
+</tr>
+<tr>
+<td>Enam entitas konten</td>
+<td>Entitas pencapaian dengan CRUD dan URL bukti opsional</td>
+<td>Prestasi/kegiatan dapat dikelola tanpa mengubah source</td>
+</tr>
+<tr>
+<td>Biodata dan unggah foto</td>
+<td>Bio/fokus/minat/domisili publik dan unggah CV PDF</td>
+<td>Profil lebih informatif serta CV mudah diakses</td>
+</tr>
+<tr>
+<td>Tampilan dasar</td>
+<td>UI minimalis, tema, filter, dialog native, mobile, cetak seluruh isi</td>
+<td>Informasi mudah dicari dan digunakan di berbagai layar</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cara-menjelaskan-kode-tanpa-menghafal">Cara menjelaskan kode tanpa menghafal</h2>
+<p>Gunakan pola: <strong>input → pemeriksaan → proses → output → kemungkinan gagal</strong>. Latih dengan satu fungsi CRUD sampai Anda bisa menelusurinya tanpa membaca narasi. Setelah itu tunjukkan bahwa endpoint lain mengikuti pola yang sama.</p>
+<ol>
+<li><code>frontend/src/pages/Public.jsx</code>: effect mengambil <code>/public</code>, state menyimpan hasil/pencarian/filter, hasil render disaring tanpa mengubah database. <code>beforeprint</code> membuka uraian yang dilipat; <code>afterprint</code> mengembalikan kondisi sebelumnya.</li>
+<li><code>frontend/src/api/backendApi.js</code>: Axios menangani HTTP; fungsi CRUD memisahkan URL dan metode dari komponen.</li>
+<li><code>frontend/src/components/Pencapaian.jsx</code>: muat daftar, isi form dari record saat edit, simpan POST/PUT, konfirmasi sebelum DELETE, muat ulang daftar setelah berhasil, tampilkan error jika gagal.</li>
+<li><code>backend/index.php</code>: validasi pola route dan allowlist nama/ekstensi berkas. URL yang tidak cocok mendapat 404.</li>
+<li><code>backend/src/pencapaian.php</code>: verifikasi sesi/CSRF, baca payload, validasi, prepared statement, JSON hasil; 400 untuk input salah, 404 untuk record edit yang tidak ada, 500 untuk kegagalan proses.</li>
+<li><code>backend/library/validation.php</code>: aturan input dipakai beberapa endpoint, sehingga batas teks, URL, dan tahun konsisten.</li>
+<li><code>backend/library/uploads.php</code> dan <code>src/users.php</code>: MIME/ukuran/nama acak serta urutan simpan dan bersihkan berkas menjaga perubahan profil tidak meninggalkan unggahan baru saat validasi gagal.</li>
+<li><code>backend/migration/schema.php</code> dan <code>update-content.php</code>: perluasan skema, penggabungan data, pemeriksaan pelestarian, transaksi, marker idempoten.</li>
+<li><code>frontend/src/App.css</code>: variabel tema, breakpoint, focus keyboard, dan CSS print; tidak perlu membaca setiap deklarasi.</li>
+</ol>
+<h2 id="latihan-pertanyaan">Latihan pertanyaan</h2>
+<table>
+<thead>
+<tr>
+<th>Pertanyaan</th>
+<th>Inti jawaban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mengapa React dan PHP dipisahkan?</td>
+<td>React menangani interaksi/tampilan; PHP memiliki akses database dan validasi server. Keduanya bertukar JSON melalui HTTP.</td>
+</tr>
+<tr>
+<td>Apa bedanya state dan database?</td>
+<td>State adalah kondisi sementara pada browser; database menyimpan data setelah API berhasil. Refresh menghapus state sementara lalu mengambil data tersimpan.</td>
+</tr>
+<tr>
+<td>Mengapa validasi dilakukan dua kali?</td>
+<td>Browser memberi umpan balik cepat; server tetap menjadi batas kepercayaan karena request dapat dibuat tanpa formulir.</td>
+</tr>
+<tr>
+<td>Apa fungsi prepared statement?</td>
+<td>Memisahkan struktur SQL dari nilai input untuk menghindari input dianggap sintaks SQL. Bukan pengganti validasi atau otorisasi.</td>
+</tr>
+<tr>
+<td>GET, POST, PUT, DELETE?</td>
+<td>Membaca, menambah, memperbarui, dan menghapus. Controller memeriksa metode, sesi, serta CSRF pada operasi admin.</td>
+</tr>
+<tr>
+<td>Apa fungsi token?</td>
+<td>Pada versi deploy, cookie HttpOnly menyimpan ID sesi PHP. Nilai token di form adalah CSRF, bukan kredensial login. Sesi berakhir setelah 30 menit tidak aktif atau 8 jam total; password baru membatalkan sesi lain.</td>
+</tr>
+<tr>
+<td>Apakah CORS melindungi API?</td>
+<td>CORS mengatur akses lintas origin oleh browser. Aplikasi ini memakai satu origin melalui /api sehingga tidak memerlukan CORS. CORS bukan pengganti sesi/otorisasi dan tidak menghentikan semua klien HTTP.</td>
+</tr>
+<tr>
+<td>Mengapa tidak memberi persentase skill?</td>
+<td>Tidak ada pengukuran terstandar untuk persentase tersebut. Definisi level dan status belum dinilai lebih jujur.</td>
+</tr>
+<tr>
+<td>Apakah semua proyek punya demo?</td>
+<td>Tidak. Tombol hanya tampil ketika URL tersedia. Rancangan konseptual disebutkan secara jelas.</td>
+</tr>
+<tr>
+<td>Apakah prestasi sudah diverifikasi independen?</td>
+<td>Isinya mengikuti data pemilik. URL bukti opsional belum diisi; tidak ada klaim verifikasi atau sertifikat yang direkayasa.</td>
+</tr>
+<tr>
+<td>Apa bedanya unduh CV dan cetak?</td>
+<td>CV adalah berkas ringkas yang diunggah/diganti admin. Cetak memakai data halaman terbaru dan memuat seluruh konten.</td>
+</tr>
+<tr>
+<td>Bagaimana mencegah migrasi menghapus data?</td>
+<td>Backup, ALTER aditif, merge berdasarkan identitas, transaksi isi, pemeriksaan akun/level, dan marker agar pengulangan tidak menimpa edit. ALTER MySQL sendiri tidak dianggap dapat dirollback oleh transaksi isi.</td>
+</tr>
+<tr>
+<td>Apa yang dibuktikan pengujian?</td>
+<td>Kasus yang dijalankan berhasil pada lingkungan lokal. Build berhasil tidak otomatis membuktikan semua interaksi, semua browser, deployment, atau keamanan menyeluruh.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sebelum-merekam">Sebelum merekam</h2>
+<ul>
+<li>Aktifkan backend, frontend, MySQL; muat halaman publik dan cek foto/CV.</li>
+<li>Gunakan zoom editor yang terbaca, misalnya 125–150%, dan hanya buka file yang dibahas.</li>
+<li>Siapkan dua tab: publik dan admin. Muat ulang publik sesudah edit; belum ada sinkronisasi real time.</li>
+<li>Pilih satu contoh proyek yang Anda paling pahami. Tambahkan satu tantangan nyata dan penyelesaiannya dari pengalaman Anda sendiri.</li>
+<li>Rekam uji yang benar-benar dijalankan. Jelaskan hasil lint dan tes yang benar-benar dijalankan; jangan mengklaim skor Lighthouse hijau yang belum diukur.</li>
+<li>Latih pertanyaan dengan menutup narasi, jelaskan alur data dengan kata sendiri, lalu cocokkan dengan kode.</li>
+</ul>
+
+
+
+        </body>
+        </html>
